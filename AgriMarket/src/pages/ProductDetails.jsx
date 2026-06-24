@@ -16,6 +16,7 @@ function ProductDetails() {
         const [comment,setComment]=useState("");
         const [quantity, setQuantity] = useState(1);
         const [selectedImage, setSelectedImage] = useState("");
+        const { isAuthenticated } = useSelector((state) => state.user);
 
     
         const handleRatingChange = (newRating) => {
@@ -79,6 +80,15 @@ function ProductDetails() {
     }
 
     const addToCart=()=>{
+        
+        if (!isAuthenticated) {
+        toast.error("Please login first to add items to cart", {
+            position: "top-center",
+            autoClose: 3000,
+        });
+        return;
+    }
+
         dispatch(addItemsToCart({id,quantity}));
     }
 

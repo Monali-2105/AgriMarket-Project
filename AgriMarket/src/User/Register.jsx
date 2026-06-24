@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useEffect} from 'react';
 import { register, removeErrors, removeSuccess } from '../features/user/userSlice';
 import { useNavigate } from 'react-router-dom';
+import PageTitle from '../components/PageTitle';
 
 function Register() {
     const [user,setUser]=useState({
@@ -70,6 +71,8 @@ function Register() {
 
         
   return (
+    <>
+    <PageTitle title="Register"/>
     <div className="form-container container">
         <div className="form-content">
             <form className="form" onSubmit={registerSubmit} encType='multipart/form-data'>
@@ -99,7 +102,7 @@ function Register() {
         </div>
     </div>
 
-
+</>
   )
 }
 

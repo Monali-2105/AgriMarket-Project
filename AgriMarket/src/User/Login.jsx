@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login, removeSuccess } from '../features/user/userSlice';
 import { removeErrors } from '../features/user/userSlice';
 import { toast } from 'react-toastify';
+import PageTitle from '../components/PageTitle';
 
 function Login() {
     const navigate=useNavigate();
@@ -45,6 +46,8 @@ function Login() {
 
 
   return (
+    <>
+    <PageTitle title="Login"/>
     <div className="form-container container">
         <div className="form-content">
             <form className="form" onSubmit={loginSubmit}>
@@ -66,6 +69,8 @@ function Login() {
             </form>
         </div>
     </div>
+
+    </>
   )
 }
 

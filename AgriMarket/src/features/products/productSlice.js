@@ -74,8 +74,9 @@ const productSlice=createSlice({
         loading:false,
         error:null,
         product:null,
-        //resultsPerPage:4,
-        //totalPages:0,
+        resultsPerPage:3,
+        totalPages:0,
+        currentPage:1,
         reviewSuccess:false,
         reviewLoading:false
     },
@@ -94,11 +95,15 @@ const productSlice=createSlice({
 
         })
         .addCase(getProduct.fulfilled,(state,action)=>{
-            console.log('Fulfilled action payload',action.payload);
             state.loading=false;
-            state.error=null;
-            state.products=action.payload.products;
-            state.productCount=action.payload.productCount;
+    state.error=null;
+
+    state.products = action.payload.products;
+    state.productCount = action.payload.productCount;
+
+    state.totalPages = action.payload.totalPages;
+    state.resultsPerPage = action.payload.resultPerPage;
+    state.currentPage = action.payload.currentPage;
             
         })
         .addCase(getProduct.rejected,(state,action)=>{

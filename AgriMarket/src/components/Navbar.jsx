@@ -70,7 +70,7 @@ function Navbar() {
                 <div className='cart-container'>
                     <Link to="/cart">
                     <ShoppingCartIcon className="icon"/>
-                    <span className='cart-badge'>{cartItems.length}</span>
+                    { isAuthenticated &&<span className='cart-badge'>{cartItems.length}</span>}
                     </Link>
                 </div>
 

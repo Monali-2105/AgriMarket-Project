@@ -38,6 +38,7 @@ function Products() {
     "Others"]
     
     
+    
 
      useEffect(()=>{
             dispatch(getProduct({keyword,page:currentPage,category}));
