@@ -11,8 +11,8 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:5173/", // Local Vite frontend
-      "https://your-vercel-app.vercel.app" // Replace with your Vercel URL
+      "http://localhost:5173", // Local Vite frontend
+      "agri-market-20rw8qupm-monali-2105s-projects.vercel.app" // Replace with your Vercel URL
     ],
     credentials: true,
   })
