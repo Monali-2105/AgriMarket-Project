@@ -9,6 +9,9 @@ import fileupload from "express-fileupload";
 
 const app = express();
 app.use(cors());
+app.get("/test", (req, res) => {
+  res.json({ message: "CORS is working" });
+});
 // app.use(
 //   cors({
 //     origin: [
