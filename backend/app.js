@@ -8,15 +8,16 @@ import cookieParser from "cookie-parser";
 import fileupload from "express-fileupload";
 
 const app = express();
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173", // Local Vite frontend
-      "agri-market-20rw8qupm-monali-2105s-projects.vercel.app" // Replace with your Vercel URL
-    ],
-    credentials: true,
-  })
-);
+app.use(cors());
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:5173", // Local Vite frontend
+//       "agri-market-20rw8qupm-monali-2105s-projects.vercel.app" // Replace with your Vercel URL
+//     ],
+//     credentials: true,
+//   })
+// );
 // INCREASE THE LIMITS HERE (50mb is usually plenty for images)
 app.use(express.json({ limit: '50mb' })); 
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
