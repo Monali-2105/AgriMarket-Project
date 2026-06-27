@@ -2,12 +2,21 @@ import express from "express";
 import products from "./routes/productRoutes.js";
 import user from "./routes/userRoutes.js"
 import order from "./routes/orderRoutes.js"
-
+import cors from "cors";
 import errorMiddleware from "./middleware/error.js";
 import cookieParser from "cookie-parser";
 import fileupload from "express-fileupload";
 
 const app = express();
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173/", // Local Vite frontend
+      "https://your-vercel-app.vercel.app" // Replace with your Vercel URL
+    ],
+    credentials: true,
+  })
+);
 // INCREASE THE LIMITS HERE (50mb is usually plenty for images)
 app.use(express.json({ limit: '50mb' })); 
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
